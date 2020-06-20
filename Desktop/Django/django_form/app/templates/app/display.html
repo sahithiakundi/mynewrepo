@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>::Display page::</title>
+</head>
+<body>
+<center>
+<a href="{% url 'add_data' %}"><b>ADD STUDENT</b></a>
+<table border="2px">
+<thead>
+<tr>
+<td>ID</td>
+<td>Name</td>
+<td>Roll no</td>
+<td>Mobile</td>
+<td colspan="2">Options</td>
+</tr>
+</thead>
+<tbody>
+{% for i in data %}
+<tr>
+<td>{{i.id}}</td>
+<td>{{i.name}}</td>
+<td>{{i.roll}}</td>
+<td>{{i.phno}}</td>
+<td><a href="{% url 'trash' i.id %}">Trash/Delete</a></td>
+<td><a href="{% url 'update' i.id  %}">Edit/Update</a></td>
+{% endfor %}
+</tbody>
+</table>
+</center>
+</body>
+</html>
